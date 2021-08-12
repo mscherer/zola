@@ -22,6 +22,7 @@ complete -c zola -n "__fish_seen_subcommand_from serve" -l drafts -d 'Include dr
 complete -c zola -n "__fish_seen_subcommand_from serve" -s O -l open -d 'Open site in the default browser'
 complete -c zola -n "__fish_seen_subcommand_from serve" -s h -l help -d 'Prints help information'
 complete -c zola -n "__fish_seen_subcommand_from serve" -s V -l version -d 'Prints version information'
+complete -c zola -n "__fish_seen_subcommand_from serve" -s k -l keep-base-url -d 'Do not adjust base_url to adapt to the port when serving files'
 complete -c zola -n "__fish_seen_subcommand_from check" -l drafts -d 'Include drafts when loading the site'
 complete -c zola -n "__fish_seen_subcommand_from check" -s h -l help -d 'Prints help information'
 complete -c zola -n "__fish_seen_subcommand_from check" -s V -l version -d 'Prints version information'

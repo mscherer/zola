@@ -226,6 +226,7 @@ fn create_new_site(
     base_url: &str,
     config_file: &Path,
     include_drafts: bool,
+    keep_base_url: bool,
     ws_port: Option<u16>,
 ) -> Result<(Site, String)> {
     SITE_CONTENT.write().unwrap().clear();
@@ -234,13 +235,15 @@ fn create_new_site(
 
     let base_address = format!("{}:{}", base_url, interface_port);
     let address = format!("{}:{}", interface, interface_port);
-
-    let base_url = if site.config.base_url.ends_with('/') {
-        format!("http://{}/", base_address)
-    } else {
-        format!("http://{}", base_address)
-    };
-
+    let base_url = if keep_base_url {
+            base_url.to_string()
+        } else {
+            if site.config.base_url.ends_with('/') {
+                format!("http://{}/", base_address)
+            } else {
+                format!("http://{}", base_address)
+            }
+        };
     site.enable_serve_mode();
     site.set_base_url(base_url);
     if let Some(output_dir) = output_dir {
@@ -271,6 +274,7 @@ pub fn serve(
     open: bool,
     include_drafts: bool,
     fast_rebuild: bool,
+    keep_base_url: bool,
 ) -> Result<()> {
     let start = Instant::now();
     let (mut site, address) = create_new_site(
@@ -281,6 +285,7 @@ pub fn serve(
         base_url,
         config_file,
         include_drafts,
+        keep_base_url,
         None,
     )?;
     console::report_elapsed_time(start);
@@ -478,6 +483,7 @@ pub fn serve(
         base_url,
         config_file,
         include_drafts,
+        keep_base_url,
         ws_port,
     ) {
         Ok((s, _)) => {

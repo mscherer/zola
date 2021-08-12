@@ -62,6 +62,8 @@ _arguments "${_arguments_options[@]}" \
 '--output-dir=[Outputs the generated site in the given path]' \
 '-u+[Changes the base_url]' \
 '--base-url=[Changes the base_url]' \
+'-k[Do not adjust base_url to adapt to the port when serving files]' \
+'--keep-base-url[Do not adjust base_url to adapt to the port when serving files]' \
 '--watch-only[Do not start a server, just re-build project on changes]' \
 '--drafts[Include drafts when loading the site]' \
 '-O[Open site in the default browser]' \

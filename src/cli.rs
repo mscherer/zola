@@ -89,6 +89,11 @@ pub fn build_cli() -> App<'static, 'static> {
                         .long("fast")
                         .takes_value(false)
                         .help("Only rebuild the minimum on change - useful when working on a specific page/section"),
+                    Arg::with_name("keep_base_url")
+                        .short("k")
+                        .long("keep-base-url")
+                        .takes_value(false)
+                        .help("Do not adjust base_url to adapt to the port when serving files"),
                 ]),
             SubCommand::with_name("check")
                 .about("Try building the project without rendering it. Checks links")

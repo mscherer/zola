@@ -64,6 +64,7 @@ fn main() {
             let open = matches.is_present("open");
             let include_drafts = matches.is_present("drafts");
             let fast = matches.is_present("fast");
+            let keep_base_url = matches.is_present("keep_base_url");
 
             // Default one
             if port != 1111 && !port_is_available(port) {
@@ -92,6 +93,7 @@ fn main() {
                 open,
                 include_drafts,
                 fast,
+                keep_base_url,
             ) {
                 Ok(()) => (),
                 Err(e) => {

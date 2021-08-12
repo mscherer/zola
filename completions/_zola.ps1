@@ -65,6 +65,8 @@ Register-ArgumentCompleter -Native -CommandName 'zola' -ScriptBlock {
             [CompletionResult]::new('--drafts', 'drafts', [CompletionResultType]::ParameterName, 'Include drafts when loading the site')
             [CompletionResult]::new('-O', 'O', [CompletionResultType]::ParameterName, 'Open site in the default browser')
             [CompletionResult]::new('--open', 'open', [CompletionResultType]::ParameterName, 'Open site in the default browser')
+            [CompletionResult]::new('-k', 'k', [CompletionResultType]::ParameterName, 'Do not adjust base_url to adapt to the port when serving files')
+            [CompletionResult]::new('--keep-base-url', 'keep-base-url', [CompletionResultType]::ParameterName, 'Do not adjust base_url to adapt to the port when serving files')
             [CompletionResult]::new('-h', 'h', [CompletionResultType]::ParameterName, 'Prints help information')
             [CompletionResult]::new('--help', 'help', [CompletionResultType]::ParameterName, 'Prints help information')
             [CompletionResult]::new('-V', 'V', [CompletionResultType]::ParameterName, 'Prints version information')
